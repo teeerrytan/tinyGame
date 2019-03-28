@@ -1,7 +1,6 @@
-const express = require("express");
-const app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
+const app = require("express")();
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
 
 let connectedUsers = [];
 let userCards = new Map();
