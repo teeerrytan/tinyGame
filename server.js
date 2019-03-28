@@ -48,16 +48,18 @@ io.on('connection', socket => {
         console.log("user disconnected");
         connectedUsers.splice(connectedUsers.indexOf(userName), 1);
         userCards.delete(userName);
-        console.log("after disconnect ", connectedUsers);
+        console.log("after disconnect ", connectedUsers, userCards);
         updateUserName();
     })
 
     function updateUserName(){
         let data = [connectedUsers, userCards];
         console.log("已发送", data);
+
+        let userCardsArray = JSON.stringify(Array.from(userCards));
         io.emit("loadUser", {
             users: connectedUsers,
-            userCards: userCards
+            userCards: userCardsArray
         });
     }
 });

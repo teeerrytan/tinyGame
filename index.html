@@ -8,7 +8,7 @@
     <link type="text/css" rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="./index.css" />
+    <link type="text/css" rel="stylesheet" href="index.css" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -169,7 +169,8 @@
             rank.style = "display: block";
         }
         //submit login form
-        document.getElementById("login").onclick = function () {
+        document.getElementById("login").onclick = function (e) {
+            e.preventDefault();
             console.log("emit success!");
             userName = document.getElementById("name").value;
             //emit login user
@@ -185,14 +186,17 @@
 
         //update user list
         socket.on("loadUser", data => {
-                console.log(data);
+                console.log("initial ", data);
                 const userList = document.getElementById("user-list");
                 let users = data.users;
-                let userCards = data.userCards;
+                let userCardsArray = data.userCards;
+                console.log("userCardsArray", userCardsArray);
+                let userCards = new Map(JSON.parse(userCardsArray));
                 userList.innerHTML = "";
 
                 users.forEach(user => {
                     var userLi = document.createElement("li");
+                    
                     let cards = userCards.get(user);
                     console.log("selected array is ", cards);
 
@@ -200,11 +204,16 @@
                         console.log("no cards!");
                     } else {
                         userLi.setAttribute('class', "collection-item center");
+                        userLi.setAttribute('style', "height: 170px;");
                         userLi.innerHTML =
-                            `<button id="${user}Button" class="btn waves-effect waves-light btn-medium cyan lighten-1 center">${user}</button>
-                        <span class="new badge cyan lighten-1" data-badge-caption="">${cards[0]}</span>
-                        <span class="new badge cyan lighten-1" data-badge-caption="">${cards[1]}</span>
-                        <span class="new badge cyan lighten-1" data-badge-caption="">${cards[2]}</span>`;
+                            `<div class="row" style="text-align:center">
+                                <button id="${user}Button" class="btn waves-effect waves-light btn-medium cyan lighten-1 left z-depth-2">${user}</button>
+                            </div>
+                            <div class="center">
+                                <span class="new badge cyan darken-2 z-depth-1 left" data-badge-caption="" style="margin-bottom: 1em">${cards[0]}</span>
+                                <span class="new badge cyan darken-2 z-depth-1 left" data-badge-caption="" style="margin-bottom: 1em">${cards[1]}</span>
+                                <span class="new badge cyan darken-2 z-depth-1 left" data-badge-caption="" style="margin-bottom: 1em">${cards[2]}</span>
+                            </div>`;
                         userList.insertBefore(userLi, userList.lastChild);
                     }
 
