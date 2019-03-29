@@ -128,6 +128,11 @@
 
                             </p>
 
+                            <p id="now-user-number"
+                                    class="center blue-grey-text lighten-1" style="display: none">
+
+                            </p>
+
                             <p class="center blue-grey-text darken-1">
                                 请勿刷新页面. 刷新将会退出当前用户.
                             </p>
@@ -331,6 +336,7 @@
                     const rankList = document.getElementById("rank-list");
 
                     const nowUser = document.getElementById("now-user");
+                    const nowUserNumber = document.getElementById("now-user-number");
                     const main = document.getElementById("main");
                     const rank = document.getElementById("rank");
 
@@ -362,6 +368,8 @@
                                     fightingArea.style = "display: block";
                                     nowUser.textContent = `当前用户: ${userName}`;
                                     nowUser.style = "display: block";
+                                    nowUserNumber.textContent = `当前用户数量: ${users.length}`;
+                                    nowUserNumber.style = "display: block";
                                     M.toast({ html: `${userName} 已登录!`, classes: 'center rounded cyan lighten-1', displayLength: '800' });
                                 }
                                 //add
@@ -429,6 +437,7 @@
                         console.log("userCardsArray", userCardsArray);
                         userStatus = new Map(JSON.parse(userStatusArray));
                         userList.innerHTML = "";
+                        nowUserNumber.textContent = `当前用户数量: ${users.length}`;
 
                         users.forEach(user => {
                             var userLi = document.createElement("li");
