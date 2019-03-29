@@ -38,7 +38,7 @@
     <div id="rank" class="container" style="display: none">
         <div class="row">
             <h3 class="center blue-grey-text text-lighten-1">排行榜</h1>
-            <hr />
+                <hr />
         </div>
         <table class="striped" style="margin-top: -30px">
             <thead>
@@ -49,7 +49,7 @@
             </thead>
 
             <tbody id="rank-list">
-                
+
             </tbody>
         </table>
     </div>
@@ -123,311 +123,324 @@
                                 <i class="material-icons right">input</i>
                             </button>
                             <p id="selectAgain" class="center white-text" style="display: none">
-                                <-- 请重新选择游戏对象
+                                <-- 请重新选择游戏对象 </p> </div> </div> </div> <p id="now-user"
+                                    class="center blue-grey-text lighten-1" style="display: none">
+
                             </p>
+
+                            <p class="center blue-grey-text darken-1">
+                                请勿刷新页面. 刷新将会退出当前用户.
+                            </p>
+
                         </div>
-                    </div>
-                </div>
-                <p id="now-user" class="center blue-grey-text lighten-1" style="display: none">
 
-                </p>
-
-                <p class="center blue-grey-text darken-1">
-                    请勿刷新页面. 刷新将会退出当前用户.
-                </p>
-
-            </div>
-
-            <!-- register -->
-            <div id="login-col" class="col s6" style="display: block">
-                <h3 class="flow-text center blue-grey-text text-lighten-1">
-                    登录
-                </h3>
-                <div id="login-form" class="card blue-grey darken-1">
-                    <div class="card-content blue-grey-text white">
-                        <span class="card-title center">请输入你的名字: </span>
-                        <br>
-                        <!-- login form -->
-                        <form class="cyan-text text-lighten-3">
-                            <div class="input-field">
-                                <input type="text" id="name">
-                                <label for="name" class="active">你的名字</label>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-action">
-                        <div class="center">
-                            <button class="btn waves-effect waves-light btn-medium cyan lighten-1" type="submit"
-                                name="action" id="login">
+                        <!-- register -->
+                        <div id="login-col" class="col s6" style="display: block">
+                            <h3 class="flow-text center blue-grey-text text-lighten-1">
                                 登录
-                                <i class="material-icons right">flight_takeoff</i>
-                            </button>
+                            </h3>
+                            <div id="login-form" class="card blue-grey darken-1">
+                                <div class="card-content blue-grey-text white">
+                                    <span class="card-title center">请输入你的名字: </span>
+                                    <br>
+                                    <!-- login form -->
+                                    <form class="cyan-text text-lighten-3">
+                                        <div class="input-field">
+                                            <input type="text" id="name">
+                                            <label for="name" class="active">你的名字</label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-action">
+                                    <div class="center">
+                                        <button class="btn waves-effect waves-light btn-medium cyan lighten-1"
+                                            type="submit" name="action" id="login">
+                                            登录
+                                            <i class="material-icons right">flight_takeoff</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-        <div class="modal-content center">
-            <div class="row">
-                <h4 class="center">挑选互换卡牌</h4>
-            </div>
-            <div class="row">
-                <div class="col s6">
-                    <p class="center">对方卡牌</p>
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content center">
+                        <div class="row">
+                            <h4 class="center">挑选互换卡牌</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col s6">
+                                <p class="center">对方卡牌</p>
 
-                    <select id="yourCards" style="display: block">
-                        <option value="" disabled selected>选择卡牌</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
+                                <select id="yourCards" style="display: block">
+                                    <option value="" disabled selected>选择卡牌</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
 
+                            </div>
+                            <div class="col s6">
+                                <p class="center">我方卡牌</p>
+
+                                <select id="myCards" style="display: block">
+                                    <option value="" disabled selected>选择卡牌</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <a id="selectConfirm" class="modal-close waves-effect waves-teal btn">确定</a>
+                    </div>
                 </div>
-                <div class="col s6">
-                    <p class="center">我方卡牌</p>
+                <!--JavaScript at end of body for optimized loading-->
+                <script type="text/javascript"
+                    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-                    <select id="myCards" style="display: block">
-                        <option value="" disabled selected>选择卡牌</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+                <script>
+                    'use strict';
+                    let modalOptions = {
+                        opacity: 0.5,
+                        inDuration: 250,
+                        outDuration: 250,
+                        onOpenStart: null,
+                        onOpenEnd: null,
+                        onCloseStart: null,
+                        onCloseEnd: null,
+                        preventScrolling: true,
+                        dismissible: true,
+                        startingTop: '4%',
+                        endingTop: '10%'
+                    };
+                    var elems = document.querySelectorAll('.modal');
+                    var instances = M.Modal.init(elems, modalOptions);
+                    let users = [];
+                    let userCards = new Map();
+                    let userStatus = new Map();
+                    let isLogin = false;
+                    let currentUser = '';
+                    let currentOppo = '';
+                    let userName = "";
+                    //var socket = io.connect('http://localhost:5000');
+                    var socket = io({ 'timeout': 5000, 'connect timeout': 5000 });
 
-                </div>
-            </div>
-
-        </div>
-        <div class="modal-footer">
-            <a id="selectConfirm" class="modal-close waves-effect waves-teal btn">确定</a>
-        </div>
-    </div>
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-    <script>
-        let users = [];
-        let userCards = new Map();
-        let isLogin = false;
-        let currentUser = '';
-        let currentOppo = '';
-        console.log("isLogin is " + isLogin);
-        function userClicked(user) {
-            if (isLogin) {
-                if (user === currentUser) {
-                    alert("不能选择自己!");
-                } else {
-                    console.log(user + " is clicked!");
-                    currentOppo = user;
-                    let tempResult = document.getElementById("tempResult");
-                    document.getElementById("startGame").style.display = "inline";
-                    document.getElementById("selectCards").style.display = "none";
-                    document.getElementById("selectAgain").style.display = "none";
-                    document.getElementById("result").style.display = "none";
-
-                    tempResult.style.display = 'block';
-
-                    let yourCards = userCards.get(user);
-                    let myCards = userCards.get(currentUser);
-
-                    document.getElementById("yourCards").innerHTML = `
-                        <option value="" disabled selected>选择卡牌</option>
-                        <option value="${yourCards[0]}">${yourCards[0]}</option>
-                        <option value="${yourCards[1]}">${yourCards[1]}</option>
-                        <option value="${yourCards[2]}">${yourCards[2]}</option>`;
-
-                    document.getElementById("myCards").innerHTML = `
-                        <option value="" disabled selected>选择卡牌</option>
-                        <option value="${myCards[0]}">${myCards[0]}</option>
-                        <option value="${myCards[1]}">${myCards[1]}</option>
-                        <option value="${myCards[2]}">${myCards[2]}</option>`;
-
-                }
-            } else {
-                alert("请先登录");
-            }
-        }
-
-        function game() {
-            if (currentOppo === '') {
-                alert("请先选择游戏对象!");
-            } else {
-                document.getElementById("tempResult").style.display = "none";
-                document.getElementById("oppoLoading").style.display = 'inline';
-                let me = Math.floor(Math.random() * 100) + 1;
-                let you = Math.floor(Math.random() * 100) + 1;
-
-                window.setTimeout(`closeWaitOpenResult(${me}, ${you});`, 1);
-                /////////////////////////////////////////////////////////////////
-            }
-        }
-
-        function closeWaitOpenResult(me, you) {
-
-            if (me > you) {
-                document.getElementById("startGame").style.display = "none";
-                document.getElementById("selectCards").style.display = "inline";
-                document.getElementById("result").innerHTML = `<h5 class="center">你&nbsp;&nbsp;:&nbsp;&nbsp;对方</h5><h5 class="center">${me}&nbsp;:&nbsp;${you}</h5><h5 id="win" class="center">你赢了</h5>`;
-
-            } else if (me < you) {
-                document.getElementById("startGame").style.display = "none";
-                document.getElementById("selectAgain").style.display = "inline";
-                document.getElementById("result").innerHTML = `<h5 class="center">你&nbsp;&nbsp;:&nbsp;&nbsp;对方</h5><h5 class="center">${me}:${you}</h5><h5 id="lose" class="center">你输了</h5>`;
-            } else {
-                document.getElementById("result").innerHTML = `<h5 class="center">你&nbsp;&nbsp;:&nbsp;&nbsp;对方</h5><h2 class="center">${me}:${you}</h2><h5 id="lose" class="center">结果相同, 再比一次吧~</h5>`;
-            }
-            document.getElementById("oppoLoading").style.display = "none";
-            document.getElementById("result").style.display = "block";
-        }
-
-
-        (function () {
-            'use strict';
-            let modalOptions = {
-                opacity: 0.5,
-                inDuration: 250,
-                outDuration: 250,
-                onOpenStart: null,
-                onOpenEnd: null,
-                onCloseStart: null,
-                onCloseEnd: null,
-                preventScrolling: true,
-                dismissible: true,
-                startingTop: '4%',
-                endingTop: '10%'
-            };
-            var elems = document.querySelectorAll('.modal');
-            var instances = M.Modal.init(elems, modalOptions);
-
-            let userName = "";
-            //var socket = io.connect('http://localhost:5000');
-            var socket = io({ 'timeout': 5000, 'connect timeout': 5000 });
-
-            if (socket !== undefined) {
-                console.log("connect to socket...");
-            }
-
-            socket.on("err", name => {
-                if (name === userName) {
-                    alert("用户已重名! \n若您已经登录, 则说明有用户在尝试用同样的名字登陆, 可不用理会.");
-                }
-            });
-
-            const loginForm = document.getElementById("login-form");
-            const loginCol = document.getElementById("login-col");
-            const fightingArea = document.getElementById("fighting-area");
-            const userList = document.getElementById("user-list");
-            const rankList = document.getElementById("rank-list");
-
-            const nowUser = document.getElementById("now-user");
-            const main = document.getElementById("main");
-            const rank = document.getElementById("rank");
-
-            //switch page
-            document.getElementById("mainButton").onclick = function () {
-                main.style = "display: block";
-                rank.style = "display: none";
-            }
-            document.getElementById("rankButton").onclick = function () {
-                main.style = "display: none";
-                rank.style = "display: block";
-            }
-            //submit login form
-            document.getElementById("startGame").onclick = game;
-            document.getElementById("login").onclick = function () {
-                userName = document.getElementById("name").value;
-                if (typeof (userName) === 'undefined' || userName === "") {
-                    alert("名字不能为空!");
-                    return;
-                } else {
-                    isLogin = true;
-                    currentUser = userName;
-                    console.log("isLogin is " + isLogin + ", name is " + currentUser);
-                    //emit login user
-                    socket.emit('login', userName, () => {
-                        console.log("emit success!");
+                    if (socket !== undefined) {
+                        console.log("connect to socket...");
+                    }
+                    console.log("isLogin is " + isLogin);
+                    async function userClicked(user) {
                         if (isLogin) {
-                            loginCol.style = "display: none";
-                            fightingArea.style = "display: block";
-                            nowUser.textContent = `当前用户: ${userName}`;
-                            nowUser.style = "display: block";
-                            M.toast({ html: `${userName} 已登录!`, classes: 'center rounded cyan lighten-1', displayLength: '800' });
+                            if (user === currentUser) {
+                                alert("不能选择自己!");
+                            } else {
+                                if (userStatus.get(`${user}`) === 1 && userStatus.get(currentUser) === 1) {
+                                    await socket.emit("changeStatus", {
+                                        user: user,
+                                        currentUser: currentUser
+                                    });
+                                    console.log(user + " is clicked!");
+                                    currentOppo = user;
+                                    let tempResult = document.getElementById("tempResult");
+                                    document.getElementById("startGame").style.display = "inline";
+                                    document.getElementById("selectCards").style.display = "none";
+                                    document.getElementById("selectAgain").style.display = "none";
+                                    document.getElementById("result").style.display = "none";
+
+                                    tempResult.style.display = 'block';
+
+                                    let yourCards = userCards.get(user);
+                                    let myCards = userCards.get(currentUser);
+
+                                    document.getElementById("yourCards").innerHTML = `
+                                        <option value="" disabled selected>选择卡牌</option>
+                                        <option value="${yourCards[0]}">${yourCards[0]}</option>
+                                        <option value="${yourCards[1]}">${yourCards[1]}</option>
+                                        <option value="${yourCards[2]}">${yourCards[2]}</option>`;
+
+                                    document.getElementById("myCards").innerHTML = `
+                                        <option value="" disabled selected>选择卡牌</option>
+                                        <option value="${myCards[0]}">${myCards[0]}</option>
+                                        <option value="${myCards[1]}">${myCards[1]}</option>
+                                        <option value="${myCards[2]}">${myCards[2]}</option>`;
+                                } else if(userStatus.get(`${user}`) === 0 && userStatus.get(currentUser) === 1){
+                                    alert("当前用户正在与其他人游戏!");
+                                } else if(userStatus.get(currentUser) === 0){
+                                    alert("你当前正在被其他人挑战! 请等待挑战结束!");
+                                }
+
+                            }
+                        } else {
+                            alert("请先登录");
                         }
-                        //add
+                    }
+
+                    function game() {
+                        if (currentOppo === '') {
+                            alert("请先选择游戏对象!");
+                        } else {
+                            document.getElementById("tempResult").style.display = "none";
+                            document.getElementById("oppoLoading").style.display = 'inline';
+                            let me = Math.floor(Math.random() * 100) + 1;
+                            let you = Math.floor(Math.random() * 100) + 1;
+
+                            window.setTimeout(`closeWaitOpenResult(${me}, ${you});`, 1);
+                            /////////////////////////////////////////////////////////////////
+                        }
+                    }
+
+                    function closeWaitOpenResult(me, you) {
+
+                        if (me > you) {
+                            document.getElementById("startGame").style.display = "none";
+                            document.getElementById("selectCards").style.display = "inline";
+                            document.getElementById("result").innerHTML = `<h5 class="center">你&nbsp;&nbsp;:&nbsp;&nbsp;对方</h5><h5 class="center">${me}&nbsp;:&nbsp;${you}</h5><h5 id="win" class="center">你赢了</h5>`;
+
+                        } else if (me < you) {
+                            document.getElementById("startGame").style.display = "none";
+                            document.getElementById("selectAgain").style.display = "inline";
+                            document.getElementById("result").innerHTML = `<h5 class="center">你&nbsp;&nbsp;:&nbsp;&nbsp;对方</h5><h5 class="center">${me}:${you}</h5><h5 id="lose" class="center">你输了</h5>`;
+                            socket.emit("changeStatus", currentOppo);
+                        } else {
+                            document.getElementById("result").innerHTML = `<h5 class="center">你&nbsp;&nbsp;:&nbsp;&nbsp;对方</h5><h2 class="center">${me}:${you}</h2><h5 id="lose" class="center">结果相同, 再比一次吧~</h5>`;
+                        }
+                        document.getElementById("oppoLoading").style.display = "none";
+                        document.getElementById("result").style.display = "block";
+                    }
+
+                    socket.on("err", name => {
+                        if (name === userName) {
+                            alert("用户已重名! \n若您已经登录, 则说明有用户在尝试用同样的名字登陆, 可不用理会.");
+                        }
                     });
-                }
-            };
 
-            //select confirm
-            document.getElementById("selectConfirm").onclick = async function () {
+                    const loginForm = document.getElementById("login-form");
+                    const loginCol = document.getElementById("login-col");
+                    const fightingArea = document.getElementById("fighting-area");
+                    const userList = document.getElementById("user-list");
+                    const rankList = document.getElementById("rank-list");
 
-                let yourCards = document.getElementById("yourCards");
-                let yourIndex = yourCards.selectedIndex;
-                let yourValue = yourCards.options[yourIndex].value;
+                    const nowUser = document.getElementById("now-user");
+                    const main = document.getElementById("main");
+                    const rank = document.getElementById("rank");
 
-                let myCards = document.getElementById("myCards");
-                let myIndex = myCards.selectedIndex;
-                let myValue = myCards.options[myIndex].value;
-                document.getElementById("result").style.display = "none";
-                document.getElementById("startGame").style.display = "inline";
-                document.getElementById("selectCards").style.display = "none";
-                let values = [currentOppo, yourValue, currentUser, myValue];
-                console.log("妈啊妈妈妈妈妈妈妈妈们 " + values);
-                await socket.emit("exchange", {
-                    currentOppo: currentOppo,
-                    yourValue: yourValue,
-                    currentUser: currentUser,
-                    myValue: myValue
-                });
+                    //switch page
+                    document.getElementById("mainButton").onclick = function () {
+                        main.style = "display: block";
+                        rank.style = "display: none";
+                    }
+                    document.getElementById("rankButton").onclick = function () {
+                        main.style = "display: none";
+                        rank.style = "display: block";
+                    }
+                    //submit login form
+                    document.getElementById("startGame").onclick = game;
+                    document.getElementById("login").onclick = function () {
+                        userName = document.getElementById("name").value;
+                        if (typeof (userName) === 'undefined' || userName === "") {
+                            alert("名字不能为空!");
+                            return;
+                        } else {
+                            isLogin = true;
+                            currentUser = userName;
+                            console.log("status is " + userStatus);
+                            //emit login user
+                            socket.emit('login', userName, () => {
+                                console.log("emit success!");
+                                if (isLogin) {
+                                    loginCol.style = "display: none";
+                                    fightingArea.style = "display: block";
+                                    nowUser.textContent = `当前用户: ${userName}`;
+                                    nowUser.style = "display: block";
+                                    M.toast({ html: `${userName} 已登录!`, classes: 'center rounded cyan lighten-1', displayLength: '800' });
+                                }
+                                //add
+                            });
+                        }
+                    };
 
-                alert("交换成功!");
-            }
+                    //select confirm
+                    document.getElementById("selectConfirm").onclick = async function () {
 
-            //update rank
-            socket.on("updateRank", data => {
-                let rankArrayJson = data.rankArray;
-                let rank = JSON.parse(rankArrayJson);
-                rankList.innerHTML = '';
-                for (let item of rank) {
-                    var rankLi = document.createElement("tr");
+                        let yourCards = document.getElementById("yourCards");
+                        let yourIndex = yourCards.selectedIndex;
+                        let yourValue = yourCards.options[yourIndex].value;
 
-                    rankLi.innerHTML =
-                        `<tr>
+                        let myCards = document.getElementById("myCards");
+                        let myIndex = myCards.selectedIndex;
+                        let myValue = myCards.options[myIndex].value;
+                        document.getElementById("result").style.display = "none";
+                        document.getElementById("startGame").style.display = "inline";
+                        document.getElementById("selectCards").style.display = "none";
+                        let values = [currentOppo, yourValue, currentUser, myValue];
+                        console.log("妈啊妈妈妈妈妈妈妈妈们 " + values);
+                        await socket.emit("exchange", {
+                            currentOppo: currentOppo,
+                            yourValue: yourValue,
+                            currentUser: currentUser,
+                            myValue: myValue
+                        });
+
+                        alert("交换成功!");
+                        await socket.emit("changeStatus", {
+                            user: currentOppo,
+                            currentUser: currentUser
+                        });
+                    }
+
+                    //update rank
+                    socket.on("updateRank", data => {
+                        let rankArrayJson = data.rankArray;
+                        let rank = JSON.parse(rankArrayJson);
+                        rankList.innerHTML = '';
+                        for (let item of rank) {
+                            var rankLi = document.createElement("tr");
+
+                            rankLi.innerHTML =
+                                `<tr>
                             <td>${item[0]}</td>
                             <td>${item[1]}</td>
                         </tr>`;
-                    rankList.appendChild(rankLi);
-                }
-            });
+                            rankList.appendChild(rankLi);
+                        }
+                    });
 
-            //update user list
-            socket.on("loadUser", data => {
-                console.log("initial ", data);
-                const userList = document.getElementById("user-list");
-                users = data.users;
-                let userCardsArray = data.userCards;
-                console.log("userCardsArray", userCardsArray);
-                userCards = new Map(JSON.parse(userCardsArray));
-                userList.innerHTML = "";
+                    //update user list
+                    socket.on("loadUser", data => {
+                        console.log("initial ", data);
+                        const userList = document.getElementById("user-list");
+                        users = data.users;
+                        //user cards
+                        let userCardsArray = data.userCards;
+                        console.log("userCardsArray", userCardsArray);
+                        userCards = new Map(JSON.parse(userCardsArray));
+                        //user status
+                        let userStatusArray = data.userStatus;
+                        console.log("userCardsArray", userCardsArray);
+                        userStatus = new Map(JSON.parse(userStatusArray));
+                        userList.innerHTML = "";
 
-                users.forEach(user => {
-                    var userLi = document.createElement("li");
+                        users.forEach(user => {
+                            var userLi = document.createElement("li");
 
-                    let cards = userCards.get(user);
-                    console.log("selected array is ", cards);
+                            let cards = userCards.get(user);
+                            console.log("selected array is ", cards);
 
-                    if (cards.length == 0) {
-                        console.log("no cards!");
-                    } else {
-                        userLi.setAttribute('class', "collection-item center center-align");
-                        userLi.setAttribute('style', "height: 170px;");
+                            if (cards.length == 0) {
+                                console.log("no cards!");
+                            } else {
+                                userLi.setAttribute('class', "collection-item center center-align");
+                                userLi.setAttribute('style', "height: 170px;");
 
-                        userLi.innerHTML =
-                            `<div class="row center-align">
+                                userLi.innerHTML =
+                                    `<div class="row center-align">
                             <button id="${user}Button" class="btn waves-effect waves-light btn-medium cyan lighten-1 center z-depth-2" onClick="userClicked('${user}')">${user}</button>
                         </div>
                         <div class="center">
@@ -435,13 +448,12 @@
                             <span class="new badge cyan darken-2 z-depth-1" data-badge-caption="" style="margin-bottom: 1em">${cards[1]}</span>
                             <span class="new badge cyan darken-2 z-depth-1" data-badge-caption="" style="margin-bottom: 1em">${cards[2]}</span>
                         </div>`;
-                        userList.insertBefore(userLi, userList.childNodes[0]);
-                    }
+                                userList.insertBefore(userLi, userList.childNodes[0]);
+                            }
 
-                });
-            });
-        })();
-    </script>
+                        });
+                    });
+                </script>
 </body>
 
 </html>
