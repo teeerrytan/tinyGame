@@ -307,7 +307,10 @@
                             document.getElementById("startGame").style.display = "none";
                             document.getElementById("selectAgain").style.display = "inline";
                             document.getElementById("result").innerHTML = `<h5 class="center">你&nbsp;&nbsp;:&nbsp;&nbsp;对方</h5><h5 class="center">${me}:${you}</h5><h5 id="lose" class="center">你输了</h5>`;
-                            socket.emit("changeStatus", currentOppo);
+                            socket.emit("changeStatus", {
+                                currentOppo: currentOppo,
+                                currentUser: currentUser
+                            });
                         } else {
                             document.getElementById("result").innerHTML = `<h5 class="center">你&nbsp;&nbsp;:&nbsp;&nbsp;对方</h5><h2 class="center">${me}:${you}</h2><h5 id="lose" class="center">结果相同, 再比一次吧~</h5>`;
                         }
