@@ -308,7 +308,7 @@
                             document.getElementById("selectAgain").style.display = "inline";
                             document.getElementById("result").innerHTML = `<h5 class="center">你&nbsp;&nbsp;:&nbsp;&nbsp;对方</h5><h5 class="center">${me}:${you}</h5><h5 id="lose" class="center">你输了</h5>`;
                             socket.emit("changeStatus", {
-                                currentOppo: currentOppo,
+                                user: currentOppo,
                                 currentUser: currentUser
                             });
                         } else {
