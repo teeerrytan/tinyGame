@@ -15,21 +15,18 @@ app.get('/', (req, res) => {
 
 const port = process.env.PORT || 5000;
 
-server.listen(port, () => {
-    console.log(`Server running on port ${port}`)
-});
+server.listen(port);
 
 //socket.io connect
 io.on('connection', socket => {
-    console.log("a user connected");
     updateUserName();
     updateRank();
 
     let userName = "";
+    let oppoUser = "";
     //login
     socket.on("login", (name, callback) => {
         if(name.trim().length === 0){
-            console.log("Name should not be null");
             return;
         }
         if(userCards.has(name)){
@@ -56,13 +53,13 @@ io.on('connection', socket => {
                 rank.push([item, 0]);
             }
         }
-        console.log("after add ", userCards);
 
         updateUserName();
     })
 
     socket.on("exchange", values => {
         currentOppo = values.currentOppo;
+        oppoUser = currentOppo;
         yourValue = values.yourValue;
         currentUser = values.currentUser;
         myValue = values.myValue;
@@ -76,16 +73,13 @@ io.on('connection', socket => {
 
         let yourList = Object.values(userCards.get(currentOppo));
         let myList = Object.values(userCards.get(currentUser));
-        console.log("type of your list: " + typeof(yourList));
         yourList.splice(yourList.indexOf(yourValue), 1, myValue);
         myList.splice(myList.indexOf(myValue), 1, yourValue);
 
         userCards.set(currentOppo, yourList);
         userCards.set(currentUser, myList);
         updateUserName();
-        console.log("交换后 " + connectedUsers, userCards);
         updateRank();
-        console.log("rank is: " + rank);
     });
 
     socket.on("changeStatus", data => {
@@ -103,7 +97,6 @@ io.on('connection', socket => {
     });
 
     socket.on("disconnect", () => {
-        console.log(`${userName} disconnected`);
         if(connectedUsers.indexOf(userName) === -1){
             void(0);
         }else{
@@ -111,14 +104,13 @@ io.on('connection', socket => {
         }
         userCards.delete(userName);
         userStatus.delete(userName);
-        console.log("after disconnect ", connectedUsers, userCards);
+        userStatus.set(oppoUser, 1)
         updateUserName();
     })
 
     function updateUserName(){
         
         let data = [connectedUsers, userCards, userStatus];
-        console.log("已发送", data);
 
         let userCardsArray = JSON.stringify(Array.from(userCards));
         let userStatusArray = JSON.stringify(Array.from(userStatus));
@@ -134,7 +126,6 @@ io.on('connection', socket => {
         rank = rank.sort(function(a,b) {
             return b[1] - a[1];
         });
-        console.log("rank is: " + rank);
         let rankArray = JSON.stringify(Array.from(rank));
         io.emit("updateRank", {
             rankArray: rankArray
