@@ -204,7 +204,7 @@ const cards = [
 ];
 
 app.get("/", (req, res) => {
-	res.sendFile(__dirname + "/index.html");
+	res.sendFile(__dirname + "/index/index.html");
 });
 
 const port = process.env.PORT || 5000;
