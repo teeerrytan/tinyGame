@@ -1,5 +1,5 @@
-// const app = require("express")();
-var server = require("http").createServer();
+const app = require("express")();
+var server = require("http").createServer(app);
 var io = require("socket.io").listen(server);
 
 let connectedUsers = [];
@@ -203,9 +203,9 @@ const cards = [
 	"活力"
 ];
 
-// app.get("/", (req, res) => {
-// 	res.sendFile(__dirname + "/index.html");
-// });
+app.get("/", (req, res) => {
+	res.sendFile(__dirname + "/index.html");
+});
 
 const port = process.env.PORT || 5000;
 
