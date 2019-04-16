@@ -264,16 +264,21 @@ io.on("connection", socket => {
 				break;
 			}
 		}
+		if (!userCards.get(currentOppo)) {
+			let yourList = Object.values(userCards.get(currentOppo));
+			let myList = Object.values(userCards.get(currentUser));
+			yourList.splice(yourList.indexOf(yourValue), 1, myValue);
+			myList.splice(myList.indexOf(myValue), 1, yourValue);
 
-		let yourList = Object.values(userCards.get(currentOppo));
-		let myList = Object.values(userCards.get(currentUser));
-		yourList.splice(yourList.indexOf(yourValue), 1, myValue);
-		myList.splice(myList.indexOf(myValue), 1, yourValue);
-
-		userCards.set(currentOppo, yourList);
-		userCards.set(currentUser, myList);
-		updateUserName();
-		updateRank();
+			userCards.set(currentOppo, yourList);
+			userCards.set(currentUser, myList);
+			updateUserName();
+			updateRank();
+		} else {
+			io.emit("oppoExit", {
+				oppo: currentOppo
+			});
+		}
 	});
 
 	socket.on("changeStatus", data => {

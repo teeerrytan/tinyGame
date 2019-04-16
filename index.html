@@ -424,6 +424,12 @@
                         }
                     });
 
+                    //update rank
+                    socket.on("oppoExit", data => {
+                        let oppo = data.oppo;
+                        M.toast({ html: `${oppo} 已退出!`, classes: 'center rounded cyan lighten-1', displayLength: '800' });
+                    });
+
                     //update user list
                     socket.on("loadUser", data => {
                         console.log("initial ", data);
