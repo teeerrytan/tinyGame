@@ -305,6 +305,9 @@ io.on("connection", socket => {
 		userStatus.delete(userName);
 		userStatus.set(oppoUser, 1);
 		updateUserName();
+		io.emit("oppoExit", {
+			oppo: userName
+		});
 	});
 
 	function updateUserName() {
