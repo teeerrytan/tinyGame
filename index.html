@@ -372,7 +372,7 @@
                                     nowUser.style = "display: block";
                                     nowUserNumber.textContent = `当前用户数量: ${users.length}`;
                                     nowUserNumber.style = "display: block";
-                                    M.toast({ html: `${userName} 已登录!`, classes: 'center rounded cyan lighten-1', displayLength: '800' });
+                                    M.toast({ html: `${userName} 已登录!`, classes: 'center rounded cyan lighten-1', displayLength: '2000' });
                                 }
                                 //add
                             });
@@ -427,7 +427,7 @@
                     //update rank
                     socket.on("oppoExit", data => {
                         let oppo = data.oppo;
-                        M.toast({ html: `${oppo} 已退出!`, classes: 'center rounded cyan lighten-1', displayLength: '800' });
+                        M.toast({ html: `${oppo} 已退出!`, classes: 'center rounded cyan lighten-1', displayLength: '2000' });
                     });
 
                     //update user list
