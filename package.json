@@ -1,16 +1,17 @@
 {
 	"name": "tinygame",
-	"main": "index.js",
+	"main": "server.js",
 	"author": "Terry Tan",
 	"license": "MIT",
 	"dependencies": {
 		"@types/socket.io": "^2.1.2",
 		"express": "^4.16.4",
+		"netlify-cli": "^2.11.7",
 		"socket.io": "^2.2.0",
 		"socket.io-client": "^2.2.0"
 	},
 	"scripts": {
-		"start": "node server.js",
+		"start": "nodemon server.js",
 		"dev": "nodemon server.js"
 	},
 	"devDependencies": {
