@@ -264,7 +264,10 @@ io.on("connection", socket => {
 				break;
 			}
 		}
-		if (!userCards.get(currentOppo)) {
+		if (
+			!userCards.get(currentOppo) ||
+			typeof userCards.get(currentOppo) == "undefined"
+		) {
 			let yourList = Object.values(userCards.get(currentOppo));
 			let myList = Object.values(userCards.get(currentUser));
 			yourList.splice(yourList.indexOf(yourValue), 1, myValue);
