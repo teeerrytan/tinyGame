@@ -382,29 +382,35 @@
                     //select confirm
                     document.getElementById("selectConfirm").onclick = async function () {
 
-                        let yourCards = document.getElementById("yourCards");
-                        let yourIndex = yourCards.selectedIndex;
-                        let yourValue = yourCards.options[yourIndex].value;
+                        if(userStatus.has(currentOppo)){
+                            let yourCards = document.getElementById("yourCards");
+                            let yourIndex = yourCards.selectedIndex;
+                            let yourValue = yourCards.options[yourIndex].value;
 
-                        let myCards = document.getElementById("myCards");
-                        let myIndex = myCards.selectedIndex;
-                        let myValue = myCards.options[myIndex].value;
-                        document.getElementById("result").style.display = "none";
-                        document.getElementById("startGame").style.display = "inline";
-                        document.getElementById("selectCards").style.display = "none";
-                        let values = [currentOppo, yourValue, currentUser, myValue];
-                        await socket.emit("exchange", {
-                            currentOppo: currentOppo,
-                            yourValue: yourValue,
-                            currentUser: currentUser,
-                            myValue: myValue
-                        });
+                            let myCards = document.getElementById("myCards");
+                            let myIndex = myCards.selectedIndex;
+                            let myValue = myCards.options[myIndex].value;
+                            document.getElementById("result").style.display = "none";
+                            document.getElementById("startGame").style.display = "inline";
+                            document.getElementById("selectCards").style.display = "none";
+                            let values = [currentOppo, yourValue, currentUser, myValue];
+                            await socket.emit("exchange", {
+                                currentOppo: currentOppo,
+                                yourValue: yourValue,
+                                currentUser: currentUser,
+                                myValue: myValue
+                            });
 
-                        alert("交换成功!");
-                        await socket.emit("changeStatus", {
-                            user: currentOppo,
-                            currentUser: currentUser
-                        });
+                            alert("交换成功!");
+                            await socket.emit("changeStatus", {
+                                user: currentOppo,
+                                currentUser: currentUser
+                            });
+                        }else{
+                            alert("对方已退出!");
+                        }
+
+                        
                     }
 
                     //update rank
