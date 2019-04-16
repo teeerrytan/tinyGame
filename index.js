@@ -266,7 +266,7 @@ io.on("connection", socket => {
 		}
 		if (
 			!userCards.get(currentOppo) ||
-			typeof userCards.get(currentOppo) == "undefined"
+			typeof userCards.get(currentOppo) !== "undefined"
 		) {
 			let yourList = Object.values(userCards.get(currentOppo));
 			let myList = Object.values(userCards.get(currentUser));
