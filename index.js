@@ -253,7 +253,6 @@ io.on("connection", socket => {
 
 	socket.on("exchange", values => {
 		currentOppo = values.currentOppo;
-		oppoUser = currentOppo;
 		yourValue = values.yourValue;
 		currentUser = values.currentUser;
 		myValue = values.myValue;
@@ -264,24 +263,16 @@ io.on("connection", socket => {
 				break;
 			}
 		}
-		if (
-			!userCards.get(currentOppo) &&
-			typeof userCards.get(currentOppo) !== "undefined"
-		) {
-			let yourList = Object.values(userCards.get(currentOppo));
-			let myList = Object.values(userCards.get(currentUser));
-			yourList.splice(yourList.indexOf(yourValue), 1, myValue);
-			myList.splice(myList.indexOf(myValue), 1, yourValue);
 
-			userCards.set(currentOppo, yourList);
-			userCards.set(currentUser, myList);
-			updateUserName();
-			updateRank();
-		} else {
-			io.emit("oppoExit", {
-				oppo: currentOppo
-			});
-		}
+		let yourList = Object.values(userCards.get(currentOppo));
+		let myList = Object.values(userCards.get(currentUser));
+		yourList.splice(yourList.indexOf(yourValue), 1, myValue);
+		myList.splice(myList.indexOf(myValue), 1, yourValue);
+
+		userCards.set(currentOppo, yourList);
+		userCards.set(currentUser, myList);
+		updateUserName();
+		updateRank();
 	});
 
 	socket.on("changeStatus", data => {

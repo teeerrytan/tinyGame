@@ -234,7 +234,7 @@
                     let currentUser = '';
                     let currentOppo = '';
                     let userName = "";
-                    var socket = io.connect('ws://216.189.149.125:5000');
+                    var socket = io.connect('localhost:5000');
                     //var socket = io({ 'timeout': 5000, 'connect timeout': 5000 });
                     socket.on("connect", function(){
                         console.log("成功连接");
@@ -410,6 +410,10 @@
                             document.getElementById("result").style.display = "none";
                             document.getElementById("startGame").style.display = "inline";
                             document.getElementById("selectCards").style.display = "none";
+                            await socket.emit("changeStatus", {
+                                user: currentOppo,
+                                currentUser: currentUser
+                            });
                             alert("对方已退出!");
                         }
 
