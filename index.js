@@ -263,16 +263,20 @@ io.on("connection", socket => {
 				break;
 			}
 		}
+		if (
+			Object.values(userCards.get(currentOppo)) &&
+			Object.values(userCards.get(currentUser))
+		) {
+			let yourList = Object.values(userCards.get(currentOppo));
+			let myList = Object.values(userCards.get(currentUser));
+			yourList.splice(yourList.indexOf(yourValue), 1, myValue);
+			myList.splice(myList.indexOf(myValue), 1, yourValue);
 
-		let yourList = Object.values(userCards.get(currentOppo));
-		let myList = Object.values(userCards.get(currentUser));
-		yourList.splice(yourList.indexOf(yourValue), 1, myValue);
-		myList.splice(myList.indexOf(myValue), 1, yourValue);
-
-		userCards.set(currentOppo, yourList);
-		userCards.set(currentUser, myList);
-		updateUserName();
-		updateRank();
+			userCards.set(currentOppo, yourList);
+			userCards.set(currentUser, myList);
+			updateUserName();
+			updateRank();
+		}
 	});
 
 	socket.on("changeStatus", data => {
